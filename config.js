@@ -6,23 +6,45 @@
 const MatrixConfig = {
     // Get webhook URL from environment variables
     getWebhookUrl() {
-        // Try Vite environment variable first (production/build)
-        if (typeof import !== 'undefined' && import.meta && import.meta.env) {
-            return import.meta.env.VITE_N8N_WEBHOOK_URL;
+        // Try different ways to access environment variables in production
+        let webhookUrl = null;
+
+        // Method 1: Vite environment variables (build-time injection)
+        try {
+            if (typeof import !== 'undefined' && import.meta && import.meta.env && import.meta.env.VITE_N8N_WEBHOOK_URL) {
+                webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
+            }
+        } catch (e) {
+            // import.meta might not be available in some environments
         }
 
-        // Try process.env for Node.js environments
-        if (typeof process !== 'undefined' && process.env) {
-            return process.env.VITE_N8N_WEBHOOK_URL;
+        // Method 2: Process environment (Node.js/SSR)
+        if (!webhookUrl && typeof process !== 'undefined' && process.env && process.env.VITE_N8N_WEBHOOK_URL) {
+            webhookUrl = process.env.VITE_N8N_WEBHOOK_URL;
         }
 
-        // Fallback to window environment (if set by build process)
-        if (typeof window !== 'undefined' && window.ENV) {
-            return window.ENV.VITE_N8N_WEBHOOK_URL;
+        // Method 3: Window environment (injected by build)
+        if (!webhookUrl && typeof window !== 'undefined' && window.ENV && window.ENV.VITE_N8N_WEBHOOK_URL) {
+            webhookUrl = window.ENV.VITE_N8N_WEBHOOK_URL;
         }
 
-        console.error('[CONFIG] No webhook URL found in environment variables');
-        return null;
+        // Method 4: Window environment config (injected at build time)
+        if (!webhookUrl && typeof window !== 'undefined' && window.ENV_CONFIG && window.ENV_CONFIG.WEBHOOK_URL) {
+            webhookUrl = window.ENV_CONFIG.WEBHOOK_URL;
+
+            // Check if it's still a placeholder
+            if (webhookUrl === 'PLACEHOLDER_WEBHOOK_URL') {
+                webhookUrl = null;
+            }
+        }
+
+        if (!webhookUrl) {
+            console.error('[CONFIG] No webhook URL found in environment variables');
+            console.error('[CONFIG] Available methods: import.meta.env, process.env, window.ENV');
+            console.error('[CONFIG] Expected variable: VITE_N8N_WEBHOOK_URL');
+        }
+
+        return webhookUrl;
     },
 
     // Development settings
