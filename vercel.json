@@ -56,13 +56,5 @@
       "destination": "/index.html"
     }
   ],
-  "functions": {
-    "index.html": {
-      "includeFiles": [
-        "**/*.js",
-        "**/*.css",
-        "**/*.html"
-      ]
-    }
-  }
+  "functions": {}
 }
