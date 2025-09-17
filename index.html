@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Terminal - AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-title">MATRIX TERMINAL v2.1.0</div>
+            <div class="connection-status">
+                <span class="status-dot" id="status-dot"></span>
+                <span id="status-text">INITIALIZING...</span>
+            </div>
+        </div>
+
+        <div class="terminal-body">
+            <div class="boot-sequence" id="boot-sequence">
+                <div class="boot-line">MATRIX OS v2.1.0 initializing...</div>
+                <div class="boot-line">Loading neural pathways...</div>
+                <div class="boot-line">Establishing quantum link...</div>
+                <div class="boot-line">AI Assistant online.</div>
+                <div class="boot-line">Type 'help' for available commands.</div>
+                <div class="boot-line">================================</div>
+            </div>
+
+            <div class="chat-container" id="chat-container">
+                <div class="messages" id="messages"></div>
+
+                <div class="input-container">
+                    <span class="prompt">root@matrix:~$</span>
+                    <input type="text" id="user-input" autocomplete="off" spellcheck="false" placeholder="Enter command or message...">
+                    <span class="cursor" id="cursor">|</span>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <span class="prompt">AI@matrix:~$</span>
+                <span class="typing-text">Processing...</span>
+                <span class="typing-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="matrix-bg-simple.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Terminal AI - Enter the Neural Network</title>
+    <meta name="description" content="Experience the future of AI interaction through our Matrix-inspired terminal interface. Connect to advanced neural pathways for intelligent conversations.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="landing-styles.css">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Matrix Terminal AI - Neural Network Interface">
+    <meta property="og:description" content="Transform your AI conversations with cyberpunk-inspired terminal aesthetics">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matrix-terminal.ai">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Matrix Terminal AI",
+        "description": "AI chatbot with Matrix terminal interface",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body class="landing-page">
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls" role="toolbar" aria-label="Accessibility Options">
+        <button id="high-contrast-toggle" class="a11y-btn" aria-label="Toggle high contrast mode">
+            <span class="sr-only">High Contrast</span>
+            🔆
+        </button>
+        <button id="reduce-motion-toggle" class="a11y-btn" aria-label="Toggle reduced motion">
+            <span class="sr-only">Reduce Motion</span>
+            ⏸️
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-text matrix-glow">MATRIX</span>
+                <span class="logo-version">v3.0</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <button class="btn-nav-cta" onclick="window.open('index.html', '_blank')">
+                    Launch Terminal
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Concept 1: Split-Screen -->
+    <section class="hero-section" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🚀</span>
+                        <span>AI POWERED INTERFACE</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line-1">Enter the</span>
+                        <span class="title-line-2 matrix-text-effect">Neural Network</span>
+                    </h1>
+                    <p class="hero-description">
+                        Experience the future of AI interaction through our Matrix-inspired terminal interface.
+                        Connect directly to advanced neural pathways for instant, intelligent responses in a
+                        cyberpunk aesthetic that makes every conversation feel like hacking the mainframe.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="btn-primary-matrix" onclick="window.open('index.html', '_blank')">
+                            <span class="btn-text">ACCESS THE MATRIX</span>
+                            <span class="btn-subtext">Free • No signup required</span>
+                        </button>
+                        <button class="btn-secondary-matrix" onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">
+                            <span class="btn-icon">▶</span>
+                            <span>Watch Demo</span>
+                        </button>
+                    </div>
+
+                    <div class="social-proof">
+                        <div class="stat-item">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Neural Link</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="terminal-preview">
+                        <div class="terminal-header-demo">
+                            <div class="terminal-title">MATRIX TERMINAL v3.0</div>
+                            <div class="connection-status">
+                                <span class="status-dot online"></span>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+                        <div class="terminal-body-demo">
+                            <div class="demo-messages">
+                                <div class="demo-message user">
+                                    <span class="prompt">root@matrix:~$</span>
+                                    <span>Hello, what can you help me with?</span>
+                                </div>
+                                <div class="demo-message ai">
+                                    <span class="prompt">AI@matrix:~$</span>
+                                    <span class="typing-demo">I can assist with coding, analysis, creative projects, and more. The Matrix holds infinite possibilities...</span>
+                                </div>
+                            </div>
+                            <div class="demo-input">
+                                <span class="prompt">root@matrix:~$</span>
+                                <span class="demo-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title matrix-glow">SYSTEM CAPABILITIES</h2>
+                <p class="section-subtitle">Advanced features designed for the digital realm</p>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card" role="article">
+                    <div class="feature-terminal">
+                        <div class="terminal-window">
+                            <div class="terminal-header-mini">
+                                <span>AI_PROCESSING.exe</span>
+                                <div class="window-controls">
+                                    <span class="control minimize"></span>
+                                    <span class="control maximize"></span>
+                                    <span class="control close"></span>
+                                </div>
+                            </div>
+                            <div class="terminal-content-mini">
+                                <div class="feature-demo">
+                                    <span class="prompt">ai@matrix:~$</span>
+                                    <span class="feature-text">Processing at neural speed</span>
+                                    <div class="loading-bar">
+                                        <div class="loading-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3 class="feature-title">Instant AI Responses</h3>
+                        <p class="feature-description">
+                            Connect directly to advanced language models through our optimized neural pathways.
+                            Experience lightning-fast responses with enterprise-grade reliability.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Sub-second response times</li>
+                            <li>Multiple AI model support</li>
+                            <li>Context-aware conversations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" role="article">
+                    <div class="feature-terminal">
+                        <div class="terminal-window">
+                            <div class="terminal-header-mini">
+                                <span>COMMANDS.sh</span>
+                                <div class="window-controls">
+                                    <span class="control minimize"></span>
+                                    <span class="control maximize"></span>
+                                    <span class="control close"></span>
+                                </div>
+                            </div>
+                            <div class="terminal-content-mini">
+                                <div class="feature-demo">
+                                    <span class="prompt">root@matrix:~$</span>
+                                    <span class="feature-text">help clear status history</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3 class="feature-title">Full Terminal Commands</h3>
+                        <p class="feature-description">
+                            Complete command-line interface with history, autocomplete, and system controls.
+                            Navigate like a true cyber warrior.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Command history & autocomplete</li>
+                            <li>System status monitoring</li>
+                            <li>Custom command aliases</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card" role="article">
+                    <div class="feature-terminal">
+                        <div class="terminal-window">
+                            <div class="terminal-header-mini">
+                                <span>MATRIX_RAIN.js</span>
+                                <div class="window-controls">
+                                    <span class="control minimize"></span>
+                                    <span class="control maximize"></span>
+                                    <span class="control close"></span>
+                                </div>
+                            </div>
+                            <div class="terminal-content-mini">
+                                <div class="matrix-mini-rain"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3 class="feature-title">Immersive Matrix Experience</h3>
+                        <p class="feature-description">
+                            Beautiful Matrix rain effects and cyberpunk aesthetics enhance every interaction.
+                            Feel like you're inside the digital realm.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Dynamic Matrix rain background</li>
+                            <li>Glitch effects & animations</li>
+                            <li>Customizable visual themes</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo-content">
+                <h2 class="section-title">Experience the Interface</h2>
+                <p class="section-subtitle">See Matrix Terminal in action</p>
+
+                <div class="demo-video-container">
+                    <div class="demo-placeholder">
+                        <div class="demo-terminal-large">
+                            <div class="terminal-header-large">
+                                <span class="terminal-title">MATRIX TERMINAL - LIVE DEMO</span>
+                                <span class="connection-status online">
+                                    <span class="status-dot"></span>
+                                    CONNECTED
+                                </span>
+                            </div>
+                            <div class="demo-conversation">
+                                <div class="demo-line">
+                                    <span class="prompt">root@matrix:~$</span>
+                                    <span>What makes this interface special?</span>
+                                </div>
+                                <div class="demo-line ai-response">
+                                    <span class="prompt">AI@matrix:~$</span>
+                                    <span class="typewriter">The Matrix Terminal combines cutting-edge AI with nostalgic cyberpunk aesthetics...</span>
+                                </div>
+                            </div>
+                            <button class="btn-demo-launch" onclick="window.open('index.html', '_blank')">
+                                Launch Full Interface
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ACCESS LEVELS</h2>
+                <p class="section-subtitle">Choose your path into the Matrix</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <div class="pricing-card basic" role="article">
+                    <div class="card-header">
+                        <h3 class="plan-name">INITIATE</h3>
+                        <div class="price-display">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">Perfect for exploring the Matrix</p>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="prompt">></span> 100 AI interactions
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Basic terminal commands
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Matrix visual effects
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Community support
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-card" onclick="window.open('index.html', '_blank')">
+                            ENTER THE MATRIX
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pricing-card pro featured" role="article">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <div class="card-header">
+                        <h3 class="plan-name">AGENT</h3>
+                        <div class="price-display">
+                            <span class="currency">$</span>
+                            <span class="amount">19</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">For power users and developers</p>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="prompt">></span> Unlimited interactions
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Advanced AI models
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Custom commands
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Priority neural link
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> API access
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Premium support
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-card-featured">
+                            UPGRADE ACCESS
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pricing-card enterprise" role="article">
+                    <div class="card-header">
+                        <h3 class="plan-name">ARCHITECT</h3>
+                        <div class="price-display">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">Enterprise-grade neural network</p>
+                    </div>
+                    <div class="card-body">
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="prompt">></span> White-label solution
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Full API access
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Custom integrations
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> Dedicated support
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> SLA guarantee
+                            </li>
+                            <li class="feature-item">
+                                <span class="prompt">></span> On-premise deployment
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-card">
+                            CONTACT ORACLE
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Enter the Matrix?</h2>
+                <p class="cta-description">
+                    Join thousands of users already experiencing the future of AI interaction.
+                    No credit card required to start your journey.
+                </p>
+                <div class="cta-actions">
+                    <button class="btn-cta-primary" onclick="window.open('index.html', '_blank')">
+                        Start Free Trial
+                    </button>
+                    <button class="btn-cta-secondary" onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})">
+                        Watch Demo First
+                    </button>
+                </div>
+                <div class="cta-trust">
+                    <span>🔒 Enterprise Security</span>
+                    <span>⚡ 99.9% Uptime SLA</span>
+                    <span>🚀 Instant Setup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-footer">
+                        <span class="logo-text matrix-glow">MATRIX</span>
+                        <span class="logo-version">v3.0</span>
+                    </div>
+                    <p class="footer-tagline">The future of AI interaction</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#demo">Demo</a>
+                        <a href="index.html" target="_blank">Launch App</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#press">Press Kit</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#docs">Documentation</a>
+                        <a href="#help">Help Center</a>
+                        <a href="#community">Community</a>
+                        <a href="#status">System Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Matrix Terminal AI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="matrix-bg-simple.js"></script>
+    <script src="landing-interactions.js"></script>
+</body>
+</html>
