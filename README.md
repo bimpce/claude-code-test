@@ -128,3 +128,13 @@ Example n8n response format:
 ---
 
 **Matrix Terminal** - Enter the digital realm and chat with your AI assistant in style! 🕶️
+
+## 🚀 **Live Demo**
+
+The Matrix Terminal is now deployed and ready to use! Access your cyberpunk AI assistant at your Vercel deployment URL.
+
+**Security Features:**
+- ✅ Environment variables encrypted and secured
+- ✅ No exposed API keys or webhooks in code
+- ✅ Production-ready with security headers
+- ✅ Automatic deployments from GitHub
