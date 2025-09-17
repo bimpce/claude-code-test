@@ -6,45 +6,38 @@
 const MatrixConfig = {
     // Get webhook URL from environment variables
     getWebhookUrl() {
-        // Try different ways to access environment variables in production
+        // In production, environment variables are available differently
+        // Vercel injects them at build time, so they might be accessible as strings
+
+        // For production deployment, hardcode the webhook URL temporarily
+        // This is a workaround until we get proper environment injection working
+        const isProduction = typeof window !== 'undefined' &&
+                            window.location.hostname !== 'localhost' &&
+                            window.location.hostname !== '127.0.0.1';
+
+        if (isProduction) {
+            // Return the webhook URL directly for production
+            return 'https://mike80slo.app.n8n.cloud/webhook/0f4c8c49-25b2-48b4-b781-a86ff354d504';
+        }
+
+        // For local development, try to get from environment
         let webhookUrl = null;
 
-        // Method 1: Vite environment variables (build-time injection)
-        try {
-            if (typeof import !== 'undefined' && import.meta && import.meta.env && import.meta.env.VITE_N8N_WEBHOOK_URL) {
-                webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-            }
-        } catch (e) {
-            // import.meta might not be available in some environments
-        }
-
-        // Method 2: Process environment (Node.js/SSR)
-        if (!webhookUrl && typeof process !== 'undefined' && process.env && process.env.VITE_N8N_WEBHOOK_URL) {
-            webhookUrl = process.env.VITE_N8N_WEBHOOK_URL;
-        }
-
-        // Method 3: Window environment (injected by build)
-        if (!webhookUrl && typeof window !== 'undefined' && window.ENV && window.ENV.VITE_N8N_WEBHOOK_URL) {
-            webhookUrl = window.ENV.VITE_N8N_WEBHOOK_URL;
-        }
-
-        // Method 4: Window environment config (injected at build time)
-        if (!webhookUrl && typeof window !== 'undefined' && window.ENV_CONFIG && window.ENV_CONFIG.WEBHOOK_URL) {
+        // Method 1: Local environment file
+        if (typeof window !== 'undefined' && window.ENV_CONFIG && window.ENV_CONFIG.WEBHOOK_URL) {
             webhookUrl = window.ENV_CONFIG.WEBHOOK_URL;
-
-            // Check if it's still a placeholder
-            if (webhookUrl === 'PLACEHOLDER_WEBHOOK_URL') {
-                webhookUrl = null;
+            if (webhookUrl !== 'PLACEHOLDER_WEBHOOK_URL') {
+                return webhookUrl;
             }
         }
 
-        if (!webhookUrl) {
-            console.error('[CONFIG] No webhook URL found in environment variables');
-            console.error('[CONFIG] Available methods: import.meta.env, process.env, window.ENV');
-            console.error('[CONFIG] Expected variable: VITE_N8N_WEBHOOK_URL');
+        // Method 2: Development fallback - use local environment
+        if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+            return 'https://mike80slo.app.n8n.cloud/webhook/0f4c8c49-25b2-48b4-b781-a86ff354d504';
         }
 
-        return webhookUrl;
+        console.error('[CONFIG] No webhook URL found');
+        return null;
     },
 
     // Development settings
